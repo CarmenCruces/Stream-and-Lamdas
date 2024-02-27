@@ -83,7 +83,7 @@ public class AppCommandRunner implements CommandLineRunner {
 				.filter(product -> product.getCategory().equals("Toys"))
 				.peek(product -> product.setPrice(product.getPrice()*0.9))
 				//.map(product -> product.withPrice(product.getPrice()*0.9))
-				//.toList();
+				.toList();
 
 		productsAfter.forEach(product -> System.out.println(product));
 
@@ -106,7 +106,7 @@ public class AppCommandRunner implements CommandLineRunner {
 						.filter(order -> order.getOrderDate().isBefore(LocalDate.of(2021, 4, 1)))
 						.flatMap(order -> order.getProducts().stream())
 						.distinct()
-						//.toList();
+						.toList();
 
 
 		result.forEach(product -> System.out.println(product));
@@ -178,7 +178,7 @@ public class AppCommandRunner implements CommandLineRunner {
 						.sorted(comparing(Order::getOrderDate).reversed())
 						//.sorted((o1, o2) -> o2.getOrderDate().compareTo(o1.getOrderDate()))
 						.limit(3)
-						//.toList();
+						.toList();
 		salida.forEach(System.out::println);
 	}
 
